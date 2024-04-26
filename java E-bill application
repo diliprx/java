@@ -1,0 +1,78 @@
+import java.util.*;
+
+class customerdata{
+    Scanner sc = new Scanner(System.in);
+    String cname,type;
+    int cn;
+    double curr, prev,tbill,unit;
+
+void getdata(){
+    System.out.println("Enter customer number: ");
+    cn = sc.nextInt();
+    System.out.println("Enter customer name: ");
+    cname = sc.next();
+    System.out.println("Enter Type of Connection (D for domestic or C for commercial)");
+    type = sc.next();
+    System.out.println("Enter previous month reading: ");
+    prev = sc.nextDouble();
+    System.out.println("Enter current month reading: ");
+    curr=sc.nextDouble();
+}
+
+void calc(){
+    unit= curr-prev;
+    if(type.equals("D")){
+        if(unit<= 100){
+            tbill = 1*unit;
+        }
+        else if(unit>100 && unit<=200){
+            tbill = 2.50*unit;
+        }
+        else if(unit>200 && unit<=500){
+            tbill = 4*unit;
+        }
+        else{
+            tbill = 6*unit;
+        }
+    }
+    else{
+        if(unit<=100){
+            tbill = 2*unit;
+        }
+        else if(unit>100 && unit<= 200){
+            tbill= 4.50*unit;
+        }
+        else if(unit>200 && unit<=500){
+            tbill = 6*unit;
+        }
+        else{
+            tbill = 7*unit;
+        }
+        
+    }
+}
+    void display(){
+        System.out.println("Customer Number =  "+cn);
+        
+        System.out.println("Customer Name = "+ cname);
+        if(type.equals("D")){
+            System.out.println("Type connection is Domestic ");
+        }
+        else{
+           System.out.println("Type connection is Commercial ");
+        }
+        System.out.println("current month reading = "+ curr);
+        System.out.println("previous month reading = "+ prev);
+        System.out.println("Total units ="+unit);
+        System.out.println("Total bill = "+tbill);
+    }
+  }
+
+public class ebill{
+    public static void main(String args[]){
+        customerdata c=new customerdata();
+        c.getdata();
+        c.calc();
+        c.display();
+    }
+}
