@@ -1,0 +1,26 @@
+import java.util.Random;
+import java.util.*;
+import java.util.InputMismatchException;
+
+class Main{
+    public static void main(String args[]){
+        try{
+            // computer generate value
+        Random r = new Random();
+        int rn = r.nextInt(10)+1;
+            //user entry
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Guess Number: ");
+        int n = sc.nextInt();
+        if(rn == n){
+            System.out.println("You Guess the Correct Number");
+            }
+        else{
+            System.out.println("Wrong Number Correct value is "+rn);
+        }
+      }
+      catch(InputMismatchException e){
+          System.out.println("Invalid Entry!");
+      }
+   }
+}
