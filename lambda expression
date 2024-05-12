@@ -1,0 +1,15 @@
+import java.util.Arrays;
+
+public class NumberFilter {
+    public static void main(String[] args) {
+        
+        Integer[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        
+        Integer[] filteredNumbers = Arrays.stream(numbers)
+                                          .filter(number -> number % 2 == 0)
+                                          .toArray(Integer[]::new);
+
+        System.out.println("Filtered numbers: " + Arrays.toString(filteredNumbers));
+    }
+}
